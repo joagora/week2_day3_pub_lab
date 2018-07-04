@@ -1,6 +1,8 @@
+require_relative("drink")
+
 class Pub
 
-  attr_reader :name, :till_amount
+  attr_reader :name, :till_amount, :drinks_stock
   attr_writer :till_amount
   def initialize(name, till_amount)
     @name = name
@@ -9,8 +11,10 @@ class Pub
   end
 
 
-  def till_amount
-    return @till_amount
+  def add_drink_to_stock(drink)
+    @drinks_stock << drink
   end
+
+
 
 end

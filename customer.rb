@@ -15,7 +15,6 @@ class Customer
     @money_amount -= drink.price
     @drunkenness_level += drink.alcohol_level
     pub.till_amount += drink.price
-    #add money to till
     #remove drink from pub stock
   end
 
