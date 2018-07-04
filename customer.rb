@@ -1,4 +1,5 @@
 require_relative("drink")
+require_relative("pub")
 class Customer
 
   attr_reader :name, :age, :money_amount, :drunkenness_level
@@ -10,9 +11,12 @@ class Customer
     @drunkenness_level = 0
   end
 
-  def buy_drink(drink)
+  def buy_drink(drink, pub)
     @money_amount -= drink.price
     @drunkenness_level += drink.alcohol_level
+    pub.till_amount += drink.price
+    #add money to till
+    #remove drink from pub stock
   end
 
 end
