@@ -2,7 +2,7 @@ require_relative("drink")
 require_relative("pub")
 class Customer
 
-  attr_reader :name, :age, :money_amount, :drunkenness_level
+  attr_reader :name, :age, :money_amount, :drunkenness_level, :drunk
   attr_writer :drunk
 
   def initialize(name, age, money_amount)
@@ -30,6 +30,15 @@ class Customer
       pub.increase_till_amount(drink)
       pub.remove_drink_from_stock(drink)
     end
+    become_drunk
   end
+
+  def become_drunk
+    if @drunkenness_level > 6
+      @drunk = true
+    end
+
+  end
+
 
 end

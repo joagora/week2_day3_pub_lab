@@ -6,6 +6,7 @@ class TestCustomer < MiniTest::Test
     @mike_customer = Customer.new("Mike", 82, 100)
     @budweisser_drink = Drink.new("Budweisser", "beer", 2, 5)
     @spoon_pub = Pub.new("Spoon", 1000)
+    @smirnoff_drink = Drink.new("Smirnoff", "vodka", 13, 40)
   end
 
   def test_how_much_money
@@ -60,9 +61,19 @@ class TestCustomer < MiniTest::Test
     assert_equal(expected, actual)
   end
 
-  def test_if_drunk__true
+  def test_if_drunk__false
     expected = false
     actual = @mike_customer.drunk
     assert_equal(expected, actual)
   end
+
+
+  def test_if_drunk__true
+    @spoon_pub.add_drink_to_stock(@smirnoff_drink)
+    @mike_customer.buy_drink(@smirnoff_drink, @spoon_pub)
+    expected = true
+    actual = @mike_customer.drunk
+    assert_equal(expected, actual)
+  end
+
 end
