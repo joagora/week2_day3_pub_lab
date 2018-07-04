@@ -60,4 +60,9 @@ class TestCustomer < MiniTest::Test
     assert_equal(expected, actual)
   end
 
+  def test_if_drunk__true
+    expected = false
+    actual = @mike_customer.drunk
+    assert_equal(expected, actual)
+  end
 end
