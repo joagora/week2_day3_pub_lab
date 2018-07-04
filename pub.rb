@@ -22,6 +22,15 @@ class Pub
     @till_amount += drink.price
   end
 
+  def find_drink(drink_name)
+    for drink in @drinks_stock
+      if drink.name == drink_name
+        return drink
+      end
+    end
+    return nil
+  end
+
   def remove_drink_from_stock(drink)
     @drinks_stock.delete(drink)
   end
