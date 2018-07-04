@@ -22,10 +22,14 @@ class Customer
 
 
   def buy_drink(drink, pub)
-    pay_for(drink)
-    increase_drunkenness(drink)
-    pub.till_amount += drink.price
-    pub.drinks_stock.delete(drink)
+    if pub.find_drink(drink.name) == nil
+      return
+    else
+      pay_for(drink)
+      increase_drunkenness(drink)
+      pub.increase_till_amount(drink)
+      pub.remove_drink_from_stock(drink)
+    end
   end
 
 

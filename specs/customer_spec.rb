@@ -21,6 +21,7 @@ class TestCustomer < MiniTest::Test
   end
 
   def test_buy_drink__less_money
+    @spoon_pub.add_drink_to_stock(@budweisser_drink)
     @mike_customer.buy_drink(@budweisser_drink, @spoon_pub)
     expected = 98
     actual = @mike_customer.money_amount
@@ -28,6 +29,7 @@ class TestCustomer < MiniTest::Test
   end
 
   def test_buy_drink__more_drunk
+    @spoon_pub.add_drink_to_stock(@budweisser_drink)
     @mike_customer.buy_drink(@budweisser_drink, @spoon_pub)
     expected = 5
     actual = @mike_customer.drunkenness_level
@@ -35,6 +37,7 @@ class TestCustomer < MiniTest::Test
   end
 
   def test_buy_drink__more_money_in_till
+    @spoon_pub.add_drink_to_stock(@budweisser_drink)
     @mike_customer.buy_drink(@budweisser_drink, @spoon_pub)
     expected = 1002
     actual = @spoon_pub.till_amount
@@ -49,6 +52,12 @@ class TestCustomer < MiniTest::Test
     assert_equal(expected, actual)
   end
 
-
+  def test_buy_drink__is_drink_in_stock
+    @spoon_pub.add_drink_to_stock(@budweisser_drink)
+    @mike_customer.buy_drink(@budweisser_drink, @spoon_pub)
+    expected = 0
+    actual = @spoon_pub.check_drinks_stock
+    assert_equal(expected, actual)
+  end
 
 end
