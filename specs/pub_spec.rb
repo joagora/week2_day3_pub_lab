@@ -22,4 +22,12 @@ class TestPub < MiniTest::Test
 
   end
 
+
+  def test_increase_till_amount
+    @spoons_pub.increase_till_amount(@budweisser_drink)
+    expected = 1002
+    actual = @spoons_pub.till_amount
+    assert_equal(expected,actual)
+  end
+
 end
