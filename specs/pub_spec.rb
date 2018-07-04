@@ -36,7 +36,7 @@ class TestPub < MiniTest::Test
     actual = @spoons_pub.find_drink("Budweisser")
     assert_equal(expected, actual)
   end
-  
+
   def test_remove_drink_from_stock
     @spoons_pub.add_drink_to_stock(@budweisser_drink)
     @spoons_pub.remove_drink_from_stock(@budweisser_drink)
@@ -44,5 +44,13 @@ class TestPub < MiniTest::Test
     actual = @spoons_pub.check_drinks_stock
     assert_equal(expected, actual)
   end
+
+  def test_find_drink__drink_not_found
+    @spoons_pub.add_drink_to_stock(@budweisser_drink)
+    expected = nil
+    actual = @spoons_pub.find_drink("Smirnoff")
+    assert_equal(expected, actual)
+  end
+
 
 end
