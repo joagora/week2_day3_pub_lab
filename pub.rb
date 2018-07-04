@@ -18,11 +18,11 @@ class Pub
     @drinks_stock << drink
   end
 
-  # pub.till_amount += drink.price
-  # pub.drinks_stock.delete(drink)
-
   def increase_till_amount(drink)
     @till_amount += drink.price
   end
 
+  def remove_drink_from_stock(drink)
+    @drinks_stock.delete(drink)
+  end
 end
