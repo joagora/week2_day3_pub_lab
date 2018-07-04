@@ -5,6 +5,7 @@ class TestPub < MiniTest::Test
   def setup
     @spoons_pub = Pub.new("Spoons", 1000)
     @budweisser_drink = Drink.new("Budweisser", "beer", 2, 2)
+    @ricardo = Customer.new("Ricardo", 27, 20)
   end
 
   def test_till
@@ -49,6 +50,12 @@ class TestPub < MiniTest::Test
     @spoons_pub.add_drink_to_stock(@budweisser_drink)
     expected = nil
     actual = @spoons_pub.find_drink("Smirnoff")
+    assert_equal(expected, actual)
+  end
+
+  def test_check_age
+    expected = 27
+    actual = @spoons_pub.check_customer_age(@ricardo)
     assert_equal(expected, actual)
   end
 

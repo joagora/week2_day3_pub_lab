@@ -31,6 +31,4 @@ class Customer
       pub.remove_drink_from_stock(drink)
     end
   end
-
-
 end

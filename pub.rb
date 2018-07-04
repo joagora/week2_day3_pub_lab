@@ -1,4 +1,5 @@
 require_relative("drink")
+require_relative("customer")
 
 class Pub
 
@@ -33,5 +34,9 @@ class Pub
 
   def remove_drink_from_stock(drink)
     @drinks_stock.delete(drink)
+  end
+
+  def check_customer_age(customer)
+    return customer.age
   end
 end
