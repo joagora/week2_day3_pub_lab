@@ -1,11 +1,10 @@
-class Drink
+class Pub
 
-  attr_reader :name, :type, :price, :alcohol_level
-  def initialize(name, type, price, alcohol_level)
+  attr_reader :name, :till_amount
+  def initialize(name, till_amount)
     @name = name
-    @type = type
-    @price = price
-    @alcohol_level = alcohol_level
+    @till_amount = till_amount
+    @drinks_stock = []
   end
 
 end
