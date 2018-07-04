@@ -41,4 +41,14 @@ class TestCustomer < MiniTest::Test
     assert_equal(expected, actual)
   end
 
+  def test_buy_drink___added_to_stock
+    @spoon_pub.add_drink_to_stock(@budweisser_drink)
+    @mike_customer.buy_drink(@budweisser_drink, @spoon_pub)
+    expected = 0
+    actual = @spoon_pub.check_drinks_stock
+    assert_equal(expected, actual)
+  end
+
+
+
 end

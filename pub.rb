@@ -10,6 +10,9 @@ class Pub
     @drinks_stock = []
   end
 
+  def check_drinks_stock
+    return @drinks_stock.count
+  end
 
   def add_drink_to_stock(drink)
     @drinks_stock << drink

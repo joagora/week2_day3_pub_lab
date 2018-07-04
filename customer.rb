@@ -15,7 +15,7 @@ class Customer
     @money_amount -= drink.price
     @drunkenness_level += drink.alcohol_level
     pub.till_amount += drink.price
-    #remove drink from pub stock
+    pub.drinks_stock.delete(drink)
   end
 
 end
